@@ -8,12 +8,13 @@ public class Main {
 
         Function<String, List<String>> funcStringToVocab = (String str) -> {
             return Arrays.stream(str.split(" "))
+                    .distinct()
                     .sorted()
                     .collect(Collectors.toList());
         };
 
         //исходный текст сообщения местного жителя
-        String input = "кошка зашла на кухню";
+        String input = "кошка зашла на кухню зашла кошка";
 
         //применяем написанную функцию к исходному тексту сообщения местного жителя
         List<String> vocabularyList = funcStringToVocab.apply(input);
